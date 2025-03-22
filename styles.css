@@ -340,3 +340,11 @@ footer ul li a:hover {
         gap: 10px;
     }
 }
+
+.academic {
+    font-family: serif;
+}
+
+.news {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
