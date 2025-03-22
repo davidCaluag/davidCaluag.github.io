@@ -7,9 +7,38 @@
 }
 
 body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 20px;
     background-color: #1a1a1a;
     color: #ffffff;
 }
+h1, h2 {
+    color: #f57c00;
+}
+ul {
+    padding-left: 20px;
+}
+a {
+    color: #ff9800;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #e68a00;
+    text-decoration: underline;
+}
+.legend {
+    background-color: #292929;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+p strong {
+    color: #ff9800;
+}
+
 
 /* Navbar */
 .navbar {
