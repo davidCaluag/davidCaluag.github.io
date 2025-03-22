@@ -11,9 +11,6 @@ section {
     margin-left: auto;
 }
 
-h1 {
-    font-size: xx-large;
-}
 
 body {
     font-family: Arial, sans-serif;
@@ -146,7 +143,7 @@ section p {
 .hero {
     text-align: center;
     padding: 60px 5%;
-    background: linear-gradient(45deg, #f57c00, #d84315);
+    background: linear-gradient(45deg, #3500f5, #d13202);
 }
 
 .hero .hero-content {
@@ -155,7 +152,7 @@ section p {
 }
 
 .hero .hero-content h1 {
-    font-size: 0.5rem;
+    font-size: 2.5rem;
     margin-bottom: 15px;
     text-align: center;
 }
