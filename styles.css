@@ -8,14 +8,18 @@
 
 
 section {
-    text-align: left;
+    margin-left: auto;
+}
+
+h1 {
+    font-size: xx-large;
 }
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    padding: 20px;
+    line-height: 2;
+    margin: auto;
+    padding: auto;
     background-color: #1a1a1a;
     color: #ffffff;
 }
@@ -151,7 +155,7 @@ section p {
 }
 
 .hero .hero-content h1 {
-    font-size: 3rem;
+    font-size: 0.5rem;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -218,7 +222,7 @@ section p {
 
 /* Reuse match styling for consistency */
 .matches {
-    padding: 50px 5%;
+    padding: 30px 5%;
 }
 
 .matches h2 {
