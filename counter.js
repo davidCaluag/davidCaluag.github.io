@@ -2,16 +2,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const counterElement = document.getElementById('counter');
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
+  var apiUrl = import.meta.env.API_URL;
+
 
   // Check if API URL is defined
   if (!window.apiUrl) {
     console.error('API URL is not defined');
     counterElement.textContent = 'Error loading counter';
     return;
+  }else{
+    apiUrl = window.apiUrl;
   }
 
+  
   // Fetch initial count
-  fetch(`${window.apiUrl}/count`)
+  fetch(`${apiUrl}/count`)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
   careButton.addEventListener('click', function () {
     careButton.disabled = true; // Disable button immediately to prevent multiple clicks
     
-    fetch(`${window.apiUrl}/increment`, { 
+    fetch(`${apiUrl}/increment`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
