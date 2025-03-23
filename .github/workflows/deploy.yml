@@ -8,9 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Create config file with secrets
-        run: |
-          echo "window.apiUrl = '${{ secrets.RAILWAY_API_URL }}';" > ./config.js
+      - name: Generate config.js with secrets
+        run: echo "window.apiUrl = '${{ secrets.RAILWAY_API_URL }}';" > config.js
           ls -la  # List files to verify config.js was created
           
       - name: Deploy to GitHub Pages
