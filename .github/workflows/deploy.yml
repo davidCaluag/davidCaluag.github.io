@@ -1,23 +1,24 @@
 name: Deploy with Secrets
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Generate config.js with secrets
-        run: echo "window.apiUrl = '${{ secrets.RAILWAY_API_URL }}';" > config.js
-          ls -la  # List files to verify config.js was created
-          
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: .
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Inject API URL into HTML
+        run: |
+          # Replace placeholder in HTML file with the actual API URL from GitHub Secrets
+          sed -i 's|<!-- API_URL_PLACEHOLDER -->|window.apiUrl = "${{ secrets.API_URL }}";|g' index.html
           
-env:
-  API_URL: ${{ secrets.API_URL }}
+      - name: Deploy to Railway
+        run: |
+          # Deploy your code to Railway, assuming you're using a simple static deployment method
+          railway up

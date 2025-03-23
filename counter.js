@@ -2,27 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const counterElement = document.getElementById('counter');
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
-  var apiUrl = process.env.API_URL ?? window.apiUrl;
 
-
-  // Check if API URL is defined
   if (!window.apiUrl) {
     console.error('API URL is not defined');
     counterElement.textContent = 'N/A';
     return;
-  }else{
-    apiUrl = window.apiUrl;
   }
 
-
   // Fetch initial count
-  fetch(`${apiUrl}/count`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
+  fetch(`${window.apiUrl}/count`)
+    .then(response => response.json())
     .then(data => counterElement.textContent = data.count)
     .catch(error => {
       console.error('Error fetching count:', error);
@@ -32,18 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
   careButton.addEventListener('click', function () {
     careButton.disabled = true; // Disable button immediately to prevent multiple clicks
     
-    fetch(`${apiUrl}/increment`, { 
+    fetch(`${window.apiUrl}/increment`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       counterElement.textContent = data.count;
       successMessage.style.display = 'block';
