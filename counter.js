@@ -2,19 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const counterElement = document.getElementById('counter');
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
-  var apiUrl = import.meta.env.API_URL;
+  var apiUrl = window.apiUrl;
 
 
   // Check if API URL is defined
   if (!window.apiUrl) {
     console.error('API URL is not defined');
-    counterElement.textContent = 'Error loading counter';
+    counterElement.textContent = 'N/A';
     return;
   }else{
     apiUrl = window.apiUrl;
   }
 
-  
+
   // Fetch initial count
   fetch(`${apiUrl}/count`)
     .then(response => {
