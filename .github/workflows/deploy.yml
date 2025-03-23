@@ -17,3 +17,7 @@ jobs:
         with:
           branch: gh-pages
           folder: .
+
+          
+env:
+  API_URL: ${{ secrets.API_URL }}

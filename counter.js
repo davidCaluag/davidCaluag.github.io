@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const counterElement = document.getElementById('counter');
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
-  var apiUrl = window.apiUrl;
+  var apiUrl = process.env.API_URL ?? window.apiUrl;
 
 
   // Check if API URL is defined
