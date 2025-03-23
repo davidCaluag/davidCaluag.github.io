@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
 
+  console.log(careButton);  // Debugging log to check button existence
 
   var apiUrl = API_URL ?? window.apiUrl;
 
@@ -21,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
       counterElement.textContent = 'Error loading counter';
     });
 
+  // Register click event listener
   careButton.addEventListener('click', function () {
+    console.log("Button clicked!");  // Check if this fires on button click
     careButton.disabled = true; // Disable button immediately to prevent multiple clicks
     
     fetch(`${apiUrl}/increment`, { 
@@ -30,8 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
         'Content-Type': 'application/json'
       }
     })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);  // Check the response object
+      return response.json();
+    })
     .then(data => {
+      console.log(data);  // Check the response data
       counterElement.textContent = data.count;
       successMessage.style.display = 'block';
     })
@@ -40,5 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       careButton.disabled = false; // Re-enable button on error
       alert('Failed to register your support. Please try again.');
     });
+  
+    console.log("Successfully sent.");
   });
 });
