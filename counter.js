@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
 
+
+  var apiUrl = API_URL ?? window.apiUrl;
+
   if (!window.apiUrl) {
     console.error('API URL is not defined');
     counterElement.textContent = 'N/A';
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Fetch initial count
-  fetch(`${window.apiUrl}/count`)
+  fetch(`${apiUrl}/count`)
     .then(response => response.json())
     .then(data => counterElement.textContent = data.count)
     .catch(error => {
@@ -21,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
   careButton.addEventListener('click', function () {
     careButton.disabled = true; // Disable button immediately to prevent multiple clicks
     
-    fetch(`${window.apiUrl}/increment`, { 
+    fetch(`${apiUrl}/increment`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

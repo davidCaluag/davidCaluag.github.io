@@ -5,20 +5,26 @@ on:
     branches:
       - main
 
+
 jobs:
+
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
+
+      - name: Set up environment variables
+        run: echo "API_URL=${{ secrets.API_URL }}" >> $GITHUB_ENV  
+
       - name: Checkout code
         uses: actions/checkout@v3
       
       - name: Inject API URL into envScience.html
         run: |
-          # Replace placeholder in HTML file with the actual API URL from GitHub Secrets
-          sed -i 's|<!-- API_URL_PLACEHOLDER -->|window.apiUrl = "${{ secrets.API_URL }}";|g' index.html
+          # Replace placeholder in envScience.html with the actual API URL from GitHub Secrets
+          sed -i 's|<!-- API_URL_PLACEHOLDER -->|window.apiUrl = "${{ secrets.API_URL }}";|g' envScience.html
           
       - name: Deploy to Railway
         run: |
-          # Deploy your code to Railway, assuming you're using a simple static deployment method
+          # Deploy your code to Railway
           railway up
