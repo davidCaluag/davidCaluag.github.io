@@ -1,1 +1,1 @@
-window.apiUrl = 'http://function-bun-production-0dcd.up.railway.app'; ls -la
+window.apiUrl = 'https://bunsofiedeeba.up.railway.app'; ls -la
