@@ -1,0 +1,439 @@
+/* 
+ * Microplastics Project - Enhanced CSS
+ * A modern, responsive design for the microplastics awareness site
+ */
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --accent-color: #ff9800;
+    --accent-hover: #e68a00;
+    --dark-bg: #1a1a1a;
+    --card-bg: #292929;
+    --text-color: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --border-color: #3a3a3a;
+    --gradient-bg: linear-gradient(#000000, #082005);
+    --hero-gradient: linear-gradient(#3500f5, #d13202);
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin: 20px 0 10px 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+strong {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover, a:focus {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+/* Layout Components */
+main {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 40px 5%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--gradient-bg);
+    box-shadow: var(--card-shadow);
+}
+
+section h2 {
+    text-align: center;
+}
+
+.content-wrapper {
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Header & Navigation */
+header {
+    background: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.horizontal-links {
+    border-collapse: collapse;
+    width: auto;
+}
+
+.horizontal-links td {
+    padding: 0 15px;
+}
+
+.horizontal-links a {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.horizontal-links a:hover {
+    color: var(--accent-color);
+}
+
+.horizontal-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.horizontal-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section Styles */
+.hero {
+    text-align: center;
+    padding: 80px 5%;
+    background: var(--hero-gradient);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.hero .hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+/* Counter Section */
+#counter {
+    font-weight: bold;
+    font-size: 2.2em;
+    color: var(--accent-color);
+    display: inline-block;
+    margin: 0 5px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    background-color: #666666;
+    color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.success-message {
+    color: var(--primary-color);
+    margin-top: 10px;
+    display: none;
+    font-weight: 600;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.solution-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* Spread items evenly */
+    width: 100%; /* Ensure full section width */
+}
+
+.solution-card {
+    flex: 1 1 calc(50% - 20px); /* Each card takes 50% width with spacing */
+    max-width: 100%; /* Prevent shrinkage */
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.solution-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.solution-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* For the "Microplastics are Everywhere" section specifically */
+#solutions-section .solution-card {
+    /* You can add specific styles for this section if needed */
+    margin-bottom: 20px;
+}
+
+
+/* Citations & References */
+#citations ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: none; /* Remove background */
+    border: none; /* Remove borders */
+}
+
+#citations li {
+    padding: 10px;
+    margin-bottom: 15px;
+    background: none; /* Remove background */
+    border-left: 3px solid var(--accent-color); /* Keep left border for styling */
+    color: var(--text-muted); /* Softer color for readability */
+}
+
+.academic {
+    font-family: 'Georgia', serif;
+}
+
+.news {
+    font-style: italic;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 99;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 5%;
+    background: var(--card-bg);
+    color: var(--text-muted);
+    margin-top: 40px;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    section {
+        padding: 30px 4%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .solution-card {
+        flex: 1 1 100%; /* Make cards stack in smaller screens */
+    }
+
+    body {
+        font-size: 15px;
+    }
+    
+    .navbar {
+        flex-direction: column;
+    }
+    
+    .horizontal-links td {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
+    section {
+        padding: 25px 4%;
+    }
+    
+    .solution-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    #counter {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    section {
+        padding: 20px 3%;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Accessibility Features */
+:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    section {
+        background: none;
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+    
+    header, .back-to-top, button {
+        display: none;
+    }
+}
