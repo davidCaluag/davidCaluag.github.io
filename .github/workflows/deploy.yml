@@ -8,9 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Inject API URL into HTML
+      - name: Create config file with secrets
         run: |
-          find . -name "*.html" -type f -exec sed -i 's|<script src="counter.js"></script>|<script>window.apiUrl = "${{ secrets.RAILWAY_API_URL }}";</script>\n<script src="counter.js"></script>|g' {} \;
+          echo "window.apiUrl = '${{ secrets.RAILWAY_API_URL }}';" > ./config.js
+          ls -la  # List files to verify config.js was created
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
