@@ -3,24 +3,28 @@ document.addEventListener('DOMContentLoaded', function () {
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
 
-  console.log(careButton);  // Debugging log to check button existence
+  //console.log(careButton);  // Debugging log to check button existence
 
   //var apiUrl = API_URL ?? window.apiUrl;
 
-  if (!window.apiUrl) {
-    console.error('API URL is not defined');
-    counterElement.textContent = 'N/A';
-    return;
-  }
-
-  // Fetch initial count
-  fetch(`${apiUrl}/count`)
-    .then(response => response.json())
-    .then(data => counterElement.textContent = data.count)
-    .catch(error => {
-      console.error('Error fetching count:', error);
-      counterElement.textContent = 'Error loading counter';
-    });
+  if (!window.apiUrl) 
+    {
+      //Haha.
+      console.error('API URL is not defined');
+      counterElement.textContent = 'N/A';
+      return;
+    }
+  else
+    {
+      // Fetch initial count
+      fetch(`${apiUrl}/count`)
+        .then(response => response.json())
+        .then(data => counterElement.textContent = data.count)
+        .catch(error => {
+          console.error('Error fetching count:', error);
+          counterElement.textContent = 'Error loading counter';
+      });
+    }
 
   // Register click event listener
   careButton.addEventListener('click', function () {
@@ -31,16 +35,20 @@ document.addEventListener('DOMContentLoaded', function () {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({})  // Empty body if not required by the API
     })
     .then(response => {
-      console.log(response);  // Check the response object
+      //Checker.
+      //console.log(response);  // Check the response object
       return response.json();
     })
     .then(data => {
-      console.log(data);  // Check the response data
+      //Successful.
+      //console.log(data);  // Check the response data
       counterElement.textContent = data.count;
       successMessage.style.display = 'block';
+      careButton.disabled = true;
     })
     .catch(error => {
       console.error('Error incrementing count:', error);
@@ -51,9 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Successfully sent.");
   });
 });
-
-
-
 
 
 
