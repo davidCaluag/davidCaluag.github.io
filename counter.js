@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+
   const counterElement = document.getElementById('counter');
   const careButton = document.getElementById('careButton');
   const successMessage = document.getElementById('successMessage');
@@ -7,24 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //var apiUrl = API_URL ?? window.apiUrl;
 
-  if (!window.apiUrl) 
-    {
-      //Haha.
-      console.error('API URL is not defined');
-      counterElement.textContent = 'N/A';
-      return;
-    }
-  else
-    {
-      // Fetch initial count
-      fetch(`${apiUrl}/count`)
-        .then(response => response.json())
-        .then(data => counterElement.textContent = data.count)
-        .catch(error => {
-          console.error('Error fetching count:', error);
-          counterElement.textContent = 'Error loading counter';
-      });
-    }
+
+    // Fetch initial count
+    fetch(`${apiUrl}/count`)
+      .then(response => response.json())
+      .then(data => counterElement.textContent = data.count)
+      .catch(error => {
+        console.error('Error fetching count:', error);
+        counterElement.textContent = 'Error loading counter';
+    });
+    
 
   // Register click event listener
   careButton.addEventListener('click', function () {
@@ -59,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Successfully sent.");
   });
 });
+
+
 
 
 
