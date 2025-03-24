@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   console.log(careButton);  // Debugging log to check button existence
 
-  var apiUrl = API_URL ?? window.apiUrl;
+  //var apiUrl = API_URL ?? window.apiUrl;
 
   if (!window.apiUrl) {
     console.error('API URL is not defined');
@@ -51,3 +51,18 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Successfully sent.");
   });
 });
+
+
+
+
+
+
+
+
+//Misuse my API link, you're going to get shot by 300 soldiers.
+//Think about it.
+//Am I lying? Who knows...
+//Why test your luck?
+//Shoo.
+
+var apiUrl = "bunsofiedeeba.up.railway.app";
