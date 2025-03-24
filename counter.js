@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Fetch initial count
-    fetch(`${apiUrl}/count`)
+    fetch(`${myApi}/count`)
       .then(response => response.json())
       .then(data => counterElement.textContent = data.count)
       .catch(error => {
-        console.error('Error fetching count:', error);
+        console.error('Error fetching count');
         counterElement.textContent = 'Error loading counter';
     });
     
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("Button clicked!");  // Check if this fires on button click
     careButton.disabled = true; // Disable button immediately to prevent multiple clicks
     
-    fetch(`${apiUrl}/increment`, { 
+    fetch(`${myApi}/increment`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
       careButton.disabled = true;
     })
     .catch(error => {
-      console.error('Error incrementing count:', error);
+      console.error('Error incrementing count');
       careButton.disabled = false; // Re-enable button on error
       alert('Failed to register your support. Please try again.');
     });
@@ -66,4 +66,4 @@ document.addEventListener('DOMContentLoaded', function () {
 //Why test your luck?
 //Shoo.
 
-var apiUrl = "bunsofiedeeba.up.railway.app";
+var myApi = "https://bunsofiedeeba.up.railway.app";
