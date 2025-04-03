@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esports Hub</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        <!-- API_URL_PLACEHOLDER -->
-      </script>
+    <link rel="stylesheet" href="loading-screen.css">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <script src="loading.js" defer></script>
 </head>
-    <body>
+<body>
+    
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
 
-
+    <!-- Main content (initially hidden) -->
+    <div id="main-content" style="opacity: 0; transition: opacity 0.5s;">
+        <!-- Header / Navigation -->
         <header>
             <nav class="navbar">
-
                 <table class="horizontal-links">
                     <tr>
                         <td><a href="./index.html">Home</a></td>
@@ -27,12 +34,22 @@
 
         <br>
 
+        <!-- About Me Section -->
         <section>
             <h2>About Me</h2>
+            <p>Just fun thoughts I think I can share online. Opinion-based. Hate the opinion, don't hate me.</p>
+            <!-- Opinion Section -->
+            <section>
+                <p>April 3, 2025: Tariffs could have a positive impact on our environment. Given that the prices go up, I expect food chain restaurants to prioritize better food waste management. Increased prices also incentivize consumers to buy wiser. Less waste is produced from both consumers, producers, and providers due to the increased price in agriculture. I believe tariffs can control the populace with their greed and unnecessary waste! Controlling the populace sounds evil though, haha.</p>
+            </section>
+        
         </section>
 
-        <section>
-        <p>Nothing, tbh.</p>
-        </section>
-    </body>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; All rights reserved.</p>
+        </footer>
+    </div>
+</body>
 </html>

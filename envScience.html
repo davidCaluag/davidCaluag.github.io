@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        <!-- API_URL_PLACEHOLDER -->
-      </script>
-    <script src="config.js"></script>
-    <title>Environmental Science Project: Microplastics</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about microplastics, their environmental impact, and how they affect our health and ecosystems.">
+    <title>Environmental Science Project: Microplastics</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="loading-screen.css">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <!-- Defer non-critical JavaScript -->
+    <script defer src="counter.js"></script>
+
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <table class="horizontal-links">
-                <tr>
-                    <td><a href="./index.html">Home</a></td>
-                    <td><a href="./aboutme.html">About Me</a></td>
-                    <td><a href="./envScience.html">Microplastics</a></td>
-                </tr>
-            </table>
-        </nav>
-    </header>
 
-    <main>
-        <section class="project-header">
-            <h1>Microplastics</h1>
-            <p>Group 3: 
-                Caluag David, 
-                H. Y.,
-                J.S. A.S.,
-                M. N.
-            </p>
-            <hr class="separator">
-            <p class="attribution">Instantiated and Improved by: Claude.ai; ChatGPT.</p>
-        </section>
+   <!-- Loading screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Loading...</p>
+    </div>
+    
+    <!-- Main content (initially hidden) -->
+    <div id="content" style="display: none;">
+        <header>
+            <nav class="navbar">
+                <table class="horizontal-links">
+                    <tr>
+                        <td><a href="./index.html">Home</a></td>
+                        <td><a href="./aboutme.html">About Me</a></td>
+                        <td><a href="./envScience.html">Microplastics</a></td>
+                    </tr>
+                </table>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Content sections remain the same -->
+            <section class="project-header">
+                <h1>Microplastics</h1>
+                <p>Group 3: 
+                    Caluag David, 
+                    H. Y.,
+                    J.S. A.S.,
+                    M. N.
+                </p>
+                <hr class="separator">
+                <p class="attribution">Instantiated and Improved by: Claude.ai; ChatGPT.</p>
+            </section>
 
         <section id="solution-cards" class="solutions-section">
             
             <h2>What Is the Issue?</h2>
             
             <div class = "solution-card">
+                
                 <p>"Since the 1930s, the polymers industry has completely altered daily life: Plastics are in our homes, cars, clothes, furniture, electronics, as well as our single-use throwaway water bottles, food packaging, and takeout containers" (<a href="https://news.mongabay.com/2024/11/microplastics-are-sickening-and-killing-wildlife-disrupting-earth-systems/" target="_blank">Guynup, 2024</a>). Microplastics—and nanoplastics derived from primary and secondary sources like large plastic chunks—are "being detected in many environments across the globe, from ocean bottoms to mountain peaks" (<a href="https://doi.org/10.1021/acs.langmuir.4c03856" target="_blank">Al Harraq et al., 2025</a>).</p>
             
                 <p>Microplastics, a combination of nanoplastics, are found in a length range of 1–1000 μm (micrometer), while nanoplastics peak at a length of 100 nm (nanometer) (<a href="https://doi.org/10.1007/s13762-022-04261-1" target="_blank">Lamichhane et al., 2023</a>; <a href="https://doi.org/10.1021/acs.langmuir.4c03856" target="_blank">Al Harraq et al., 2025</a>). In 2023, researchers have seen an "emergence of microplastics in the human body [... Found in places like] feces, blood, placenta, lower airway, and lungs" (<a href="https://doi.org/10.1016/j.scitotenv.2023.168946" target="_blank">Zhao et al., 2024</a>). The future's trajectory is quite alarming because of how rapidly it may negatively impact the environment and public health (<a href="https://doi.org/10.1007/s13762-022-04261-1" target="_blank">Lamichhane et al., 2023</a>). "Notably, the entry of plastics into the gastrointestinal tract can result in various ailments, including dysbiosis of gut microflora and microbial biodiversity" (<a href="https://doi.org/10.1016/j.heliyon.2025.e09867" target="_blank">Zhang et al., 2023</a>). Constant or prolonged exposure may "potentially [lead] to various negative effects, such as reduced growth rates and energy levels, physiological stress, cell death, developmental abnormalities, altered lipid metabolism, and intestinal damage" (<a href="https://doi.org/10.1016/j.jhazmat.2024.136538" target="_blank">de Ruijter et al., 2025</a>). Additionally, "an increased risk of stomach cancer was noticed with more prolonged exposure to synthetic [fiber] dust" (<a href="https://doi.org/10.1016/j.scitotenv.2023.168946" target="_blank">Zhao et al., 2024</a>). Microplastics can be directly linked to "oxidative stress and the antioxidant defense system failure." Oxidative stress "plays a role in many conditions like cancer, Alzheimer's disease, and heart disease. Toxins like pollution and cigarette smoke can cause oxidative stress, while foods rich in antioxidants can help reduce it" (<a href="https://my.clevelandclinic.org/health/articles/oxidative-stress" target="_blank">Cleveland Clinic, n.d.</a>).</p>
@@ -223,38 +236,23 @@
         
         </section>
 
+        <!-- Counter section -->
         <section class="counter-section" style="text-align: center;">
-
             <h2>Interactive Things</h2>
-
             <br>
-
             <div class="counter-container">
-
                 <p><span id="counter">0</span> people care for microplastic!</p>
-
                 <br>
-
                 <button id="careButton" class="care-button">I Will Do My Part</button>
-                
                 <br>
-                
                 <p id="successMessage" class="success-message">Thank you for showing you care!</p>
-                
                 <br>
-                
             </div>
-            
             <br>
-            
             <br>
-            
             <div>
-            
                 <h3><a href="https://create.kahoot.it/share/microplastics/2d90dd1f-4fea-47a2-87e8-feb681914c39" class="kahoot-link" target="_blank">Click me: Kahoot Link</a></h3>
-            
             </div>
-
         </section>
 
         <section id="citations" class="content-section citations">
@@ -374,13 +372,15 @@
         
     </section>
 
-    <footer>
+    <div>
 
-        <p>Information last updated: March 19, Wednesday, 2025. Page updated: March 26, Wednesday, 2025. All rights reserved. Citations are provided :D</p>
-    </footer>
+    
+        <footer>
 
-    <script src="counter.js"></script>
+            <p>Information last updated: March 19, Wednesday, 2025. Page updated: March 26, Wednesday, 2025. All rights reserved. Citations are provided :D</p>
+        </footer>
 
+    </div>
 </body>
 
 </html>

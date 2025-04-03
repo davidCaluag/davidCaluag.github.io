@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page</title>
+    <style>
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* Or your loading background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #content {
+            display: none; /* Initially hide the main content */
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        Loading...
+    </div>
+    <div id="content">
+        <h1>Welcome!</h1>
+        <img src="your-image.jpg" alt="Your Image">
+        </div>
+    <script src="counter.js"></script>
+    
+</body>
+</html>
