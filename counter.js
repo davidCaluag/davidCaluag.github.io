@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Show content after loading screen
-  showContent();
+
+  setTimeout( function(){showContent(loadingScreen, content);}, 500);
 
   // Register click event for the care button
   careButton.addEventListener('click', handleCareButtonClick);
@@ -59,14 +60,14 @@ async function getCounter() {
   }
 }
 // Function to hide the loading screen and show the main content
-function showContent() {
-  const loadingScreen = document.getElementById("loading-screen");
-  const content = document.getElementById("content");
-
+function showContent(loadingScreen, content) {
   // Hide loading screen and show content
   loadingScreen.style.display = "none";
   content.style.display = "block";
-}; const myApi = "https://bunsofiedeeba.up.railway.app";
+}; 
+
+
+const myApi = "https://bunsofiedeeba.up.railway.app";
 
 async function handleCareButtonClick() {
   const careButton = document.getElementById('careButton');
