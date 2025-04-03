@@ -66,7 +66,6 @@ function showContent(loadingScreen, content) {
   content.style.display = "block";
 }; 
 
-
 const myApi = "https://bunsofiedeeba.up.railway.app";
 
 async function handleCareButtonClick() {
